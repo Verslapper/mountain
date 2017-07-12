@@ -2,6 +2,7 @@ define m = Character("Me")
 define n = Character("Me", color="#DDDDDD")
 define f = Character(_("Ford"), color="#3BB9FF") #Deep Sky Blue
 define r = Character(_("Richter"), color="#996515") #Golden Brown
+define j = Character(_("Jermaine"), color="#FAF0BE") #Blonde
 
 image bg pier = "pier.jpg"
 image bg gym = "gym.jpg"
@@ -11,11 +12,13 @@ image r trunks = "richter_trunks.png"
 image r naked = "richter_naked.png"
 image f = "ford_fluff.png"
 image f naked = "ford_naked.png"
+image j = "ford_fluff.png"
 
 default pierchat_flag = False
 default gym_start = False
 default gym1_rack = False
 default gym1_machines = False
+default j_lastbf = False
 default buffet_start = False
 default buffet1_eat = False
 default buffet1_eat_seconds = False
@@ -75,7 +78,7 @@ label start:
 
         f "Sure is. My partner and I always make the most of days like this."
 
-        "Oh. That's not what I wanted to hear, but I guess I can't be surprised."
+        "{i}Oh. That's not what I wanted to hear, but I guess I can't be surprised.{/i}"
 
         m "I, uh, just wanted to ask, how did you grow so big?"
 
@@ -83,7 +86,7 @@ label start:
 
         f "I eat a lot and lift a lot. Ain't rocket science!"
 
-        "I think I'm blushing."
+        "{i}I think I'm blushing.{/i}"
 
         m "Sounds like a recipe for success. Thanks. You two have a great day!"
 
@@ -97,17 +100,17 @@ label start:
 
         $ pierchat_flag = False
 
-        "Yeah. Still, just getting the heart racing like that has given me some inspiration."
+        "{i}Yeah. Still, just getting the heart racing like that has given me some inspiration.{/i}"
 
         jump pierchat_done
 
     label pierchat_done:
 
-        "Maybe that's what I need in my life. Bring some bigness to the table!"
+        "{i}Maybe that's what I need in my life. Bring some bigness to the table!{/i}"
 
     menu:
 
-        "But where should I go to get started?"
+        "{i}But where should I go to get started?{/i}"
 
         "The gym":
             jump gym_start
@@ -120,18 +123,18 @@ label start:
 
         if pierchat_flag:
 
-            "Well that man mountain did say he lifts a lot."
+            "{i}Well that man mountain did say he lifts a lot.{/i}"
 
         else:
             
-            "Getting a sweat on can be really energising."
+            "{i}Getting a sweat on can be really energising.{/i}"
 
         scene bg gym
         with Dissolve(.5)
 
-        "The music's doof-doofing and the room smells of assorted deodorants. That aside, I'm pumped to get pumped."
+        "{i}The music's doof-doofing and the room smells of assorted deodorants. That aside, I'm pumped to get pumped.{/i}"
 
-        "A light warmup on one of the cardio machines will give me the chance to raise that heart rate."
+        "{i}A light warmup on one of the cardio machines will give me the chance to raise that heart rate.{/i}"
 
         "And that's not the only thing to get the heart racing. While there are TV screens in front of the treadmill you're on, you casually survey the gym."
 
@@ -142,7 +145,7 @@ label start:
         "You're ready to move on to some real gym activity. The setup around the barbell lifting cage and racks look pretty full-on, but the machines look like a fairly familiar to progress to."
 
         menu:
-            "Where should I head to?"
+            "{i}Where should I head to?{/i}"
 
             "The squat rack":
                 jump gym1_rack
@@ -153,7 +156,7 @@ label start:
     label gym1_rack:
         $ gym1_rack = True
 
-        "Well that big guy made it look easy. I'll start light and keep it nice and controlled."
+        "{i}Well that big guy made it look easy. I'll start light and keep it nice and controlled.{/i}"
 
         # Have Ford come over and set the safety pegs
 
@@ -168,9 +171,9 @@ label start:
     label gym1_machines:
         $ gym1_machines = True
 
-        "Awesome! Let's see, there's a pec deck, let's work on that."
+        "{i}Awesome! Let's see, there's a pec deck, let's work on that.{/i}"
 
-        "This feels pretty good. I'm not moving as much iron as the big guys, but I'm not too out of place."
+        "{i}This feels pretty good. I'm not moving as much iron as the big guys, but I'm not too out of place.{/i}"
 
         pause 1.5
 
@@ -178,20 +181,79 @@ label start:
 
         "You snake your way into the seat of the leg press."
 
-        "My legs are really bunched up against the plate. Have I gotten taller since I did this exercise last?"
+        "{i}My legs are really bunched up against the plate. Have I gotten taller since I did this exercise last?{/i}"
 
-        "As you fiddle with the seat, a toned "
+        "As you fiddle with the seat, a toned, blonde man puts his hand on your shoulder and reaches over to a handle to the side of the seat."
 
-        # Your helper comes in and shows you how to adjust the leg press
+        "???" "It's this one here. It got me too the first time!"
 
-        # You talk about relative size
+        m "Ah, so subtle! Thanks heaps."
 
-        # He mentions he got his last boyfriend big
+        "???" "No problem, compadre. Gotta give you plenty of room to stretch out and grow, right?"
 
-        # Choose to elaborate, and thus reveal his "travel writer" job
+        m "Ain't got nothing on some of the big guys here."
 
-        # He says he's here every second day, so you can come back
-        # Or go for a protein shake and do some relationship building?
+        "???" "You've been doing pretty well, from what I've noticed. Just getting started?"
+
+        m "I guess it's my first time back in a while."
+
+        "???" "Feels alright?"
+
+        m "Yeah it does actually. My muscles might not agree in a couple of days, but great for now!"
+
+        "He laughs with his body, touching your arm as he chuckles and regathers himself."
+
+        "???" "That's the spirit! Why, I bet you'll be one of the biggest, buffest guys in the gym in no time!"
+
+        m "What makes you say that?"
+
+        "???" "My last boyfriend was a thickly built muscleman. There's something about you, I can just tell."
+
+        menu:
+            "{i>Should I ask about his boyfriend?{/i}"
+
+            "Yeah":
+                label j_lastbf_yes
+            "Nah":
+                label gym1_machines_cont
+
+    label j_lastbf_yes:
+        $ j_lastbf = True
+
+        m "What happened to your last boyfriend?"
+
+        "???" "Oh, he left me. I'm away a lot for my job. I think it got to him."
+
+        m "I see. What line of work are you in?"
+
+        "???" "I'm a travel writer, for one of those 'be your own tourguide' books."
+
+        m "Oh cool! It must be fun to see so much of the world."
+
+        "???" "It's got its perks and highlights. But it's a lot less glamourous when you're researching the ins and outs of Bulgarian public transport."
+
+        m "Well you knew the ins and outs of the leg press. Is this gonna be in your next submission?"
+
+        "???" "This may not be the hottest nightspot, but there's a certain charm about the patronage."
+
+        "He smiles at you, looking deep into your eyes."
+
+        jump gym1_machines_cont
+
+    label gym1_machines_cont:
+        pause 1.5
+
+        j "My name's Jermaine, by the way."
+
+        # intro yourself
+
+        j "I may not look like it, but I come here a fair bit. If you ever want to grab a protein shake or need rescuing from a machine trying to eat you, just let me know!"
+
+        m "Nice meeting you. Thanks again, Jermaine."
+
+        j "Now smash those legs! Push strong!"
+
+        m "Heh, can do."
 
         jump the_end
 
@@ -200,16 +262,16 @@ label start:
 
         if pierchat_flag:
 
-            "Well that man mountain did say he eats a lot."
+            "{i}Well that man mountain did say he eats a lot.{/i}"
 
         else:
             
-            "A man's gotta eat."
+            "{i}A man's gotta eat.{/i}"
 
         scene bg buffet
         with Dissolve(.5)
 
-        "There's no shortage of food here. If these aromas are anything to go by, I'm in the right place."
+        "{i}There's no shortage of food here. If these aromas are anything to go by, I'm in the right place.{/i}"
 
         "It's a large open room, with numerous hot pots, a carvery, salad and dessert bars among the many cuisine options available."
 
@@ -217,9 +279,9 @@ label start:
 
         menu:
 
-            "Where should I start?"
+            "{i}Where should I start?{/i}"
 
-            "Let's dig in!":
+            "Hit the buffet":
                 jump buffet1_eat
 
             "Visit the bar":
@@ -228,39 +290,39 @@ label start:
     label buffet1_eat:
         $ buffet1_eat = True
 
-        "A full plate is the first step to a full belly. And this plate's loaded!"
+        "{i}A full plate is the first step to a full belly. And this plate's loaded!{/i}"
 
-        "I'll take a seat at the table next to those indoor plants."
-
-        pause 2
-
-        "This curry is off the charts! So good. I can't help but keep shoveling it in my face."
+        "You take a seat at a table near some indoor plants. Gentle splashing sounds hint that there's a fountain or some water feature nearby."
 
         pause 2
 
-        "It's pretty chill here. Not busy, but there are a few people around. No real queues for food, that's a bonus."
+        "{i}This curry is off the charts! So good. I can't help but keep shoveling it in my face.{/i}"
+
+        pause 2
+
+        "{i}It's pretty chill here. Not busy, but there are a few people around. No real queues for food, that's a bonus.{/i}"
 
         menu:
 
-            "Speaking of which, time for seconds?"
+            "{i}Speaking of which, time for seconds?{/i}"
 
-            "Yeah! I wanna try a lot more!":
+            "{i}Yeah! I wanna try a lot more!{/i}":
                 jump buffet1_eat_seconds
 
-            "Let my stomach settle for a minute, there's no rush.":
+            "{i}Let my stomach settle for a minute, there's no rush.{/i}":
                 jump buffet1_eat_noseconds
 
     label buffet1_eat_seconds:
         $ buffet1_eat_seconds = True
 
-        "These meals aren't gonna eat themselves! Let's see... some pasta. Ravioli and lasagna? Why not! Roast beef, roast veggies, this'll do nicely."
+        "{i}These meals aren't gonna eat themselves! Let's see... some pasta. Ravioli and lasagna? Why not! Roast beef, roast veggies, this'll do nicely.{/i}"
 
         # Ready to meet
 
         jump the_end
 
     label buffet1_eat_noseconds:
-        "Ahh. This is more relaxing than looking out into the water."
+        "{i}Ahh. This is more relaxing than looking out into the water.{/i}"
 
         # Ready to meet
 
@@ -269,7 +331,7 @@ label start:
     label buffet1_bar:
         $ buffet1_bar = True
 
-        "I'll pull up a barstool and see what this bartender is up to."
+        "{i}I'll pull up a barstool and see what this bartender is up to.{/i}"
 
         pause 2
 
@@ -331,7 +393,7 @@ label start:
 
     label the_end:
 
-        "I've got a really good feeling about this. I think this is the start of a wonderful friendship. Maybe even more..."
+        "{i}I've got a really good feeling about this. I think this is the start of a wonderful friendship. Maybe even more...{/i}"
 
         show bg black
         with fade
