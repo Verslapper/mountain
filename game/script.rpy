@@ -142,7 +142,7 @@ label start:
 
         "There are a few more beefy types and average Joes in and around the machines."
 
-        "You're ready to move on to some real gym activity. The setup around the barbell lifting cage and racks look pretty full-on, but the machines look like a fairly familiar to progress to."
+        "You're ready to move on to some real gym activity. The setup around the barbell lifting cage and racks look pretty full-on, but the machines look like a more familiar progression."
 
         menu:
             "{i}Where should I head to?{/i}"
@@ -158,13 +158,61 @@ label start:
 
         "{i}Well that big guy made it look easy. I'll start light and keep it nice and controlled.{/i}"
 
-        # Have Ford come over and set the safety pegs
+        "Starting with an empty barbell, you groove your way into some squats, adding a bit more weight on the ends for your second and third sets."
 
-        # Then he watches you and gives a pointer
+        "Your legs start to feel the burn, but you're not shaking, just breathing heavier."
 
-        # Then he says that he's a PT
+        "As you complete your fifth rep, you wobbily rack the weight and suck in some oxygen."
 
-        # Then you set up a session for next time
+        show f
+
+        "???" "Well done, little buddy. Showing some real mettle there."
+
+        m "Th- thanks man!"
+
+        "???" "Just to let you know, you can set these pegs on the squat cage..."
+
+        "???" "Here, and here."
+
+        "???" "So if you push yourself a bit too hard and you can't stand back up, you can safely bail out and the bar can stay there and not crush you."
+
+        m "High tech! Good to know, thanks, mister."
+
+        f "The name's Ford. Hope I'm not imposing too much. It's just great to see someone taking a shine to the iron."
+
+        m "Not at all! It's great to see a friendly face! I can't remember the last time I was in a gym."
+
+        f "You're doing great, using plenty of heart and muscling your way through it. But if we just tweak your starting position ..."
+
+        "He walks you back underneath the barbell."
+
+        f "If you push your feet out a bit more ..."
+
+        "He places his hands on the inside of your thighs and gently nudges it until your feet point out at 45 degrees."
+
+        f "And get your upper back tight and set to make a nice, firm shelf for the bar to sit on ..."
+
+        "Ford draws a line along the muscles between your shoulder blades with his fingertips."
+
+        f "Really grab the bar tightly, that normally helps activate those muscles."
+
+        f "That's really good. Now you're in a great position of strength. It'll be a bit easier when you get more muscles involved like that. Give it a try."
+
+        "It still wasn't easy, but you do your best and control the movement well."
+
+        m "Hmmm, that just might work. I guess you've done this a lot, huh?"
+
+        f "Sure do, and not just the lifting. I do personal training around these parts, teaching and showing how it's done."
+
+        m "I'd love you to show me a few more things sometime."
+
+        f "I thought you might. We should do a session together."
+
+        m "Totally. Sounds terrific."
+
+        f "I'll let you finish up then. See you around!"
+
+        m "Likewise! Thanks!"
 
         jump the_end
 
@@ -210,12 +258,13 @@ label start:
         "???" "My last boyfriend was a thickly built muscleman. There's something about you, I can just tell."
 
         menu:
-            "{i>Should I ask about his boyfriend?{/i}"
+            "{i}Should I ask about his boyfriend?{/i}"
 
             "Yeah":
-                label j_lastbf_yes
+                jump j_lastbf_yes
+                
             "Nah":
-                label gym1_machines_cont
+                jump gym1_machines_cont
 
     label j_lastbf_yes:
         $ j_lastbf = True
@@ -249,11 +298,11 @@ label start:
 
         j "I may not look like it, but I come here a fair bit. If you ever want to grab a protein shake or need rescuing from a machine trying to eat you, just let me know!"
 
-        m "Nice meeting you. Thanks again, Jermaine."
+        m "Haha, sure thing! Nice meeting you."
 
         j "Now smash those legs! Push strong!"
 
-        m "Heh, can do."
+        m "Heh, can do. Thanks again, Jermaine."
 
         jump the_end
 
