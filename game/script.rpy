@@ -3,6 +3,7 @@ define n = Character("Me", color="#DDDDDD")
 define f = Character(_("Ford"), color="#3BB9FF") #Deep Sky Blue
 define r = Character(_("Richter"), color="#996515") #Golden Brown
 define j = Character(_("Jermaine"), color="#FAF0BE") #Blonde
+define y = Character(_("Royce"), color="#8F6FF") #Poiple
 
 image bg pier = "pier.jpg"
 image bg gym = "gym.jpg"
@@ -366,14 +367,112 @@ label start:
 
         "{i}These meals aren't gonna eat themselves! Let's see... some pasta. Ravioli and lasagna? Why not! Roast beef, roast veggies, this'll do nicely.{/i}"
 
-        # Ready to meet
+        "You plump yourself and your loaded plate back at the table and chow down."
 
-        jump the_end
+        "It's glorious. You can feel your belt poking into your stuffed belly."
+
+        "You pause to exhale deeply, and give your stomach a subtle little rub, urging it to work that pasta down so you can finish the plate."
+
+        jump buffet1_eat_meet
 
     label buffet1_eat_noseconds:
         "{i}Ahh. This is more relaxing than looking out into the water.{/i}"
 
-        # Ready to meet
+        jump buffet1_eat_meet
+
+    label buffet1_eat_meet:
+
+        "A short fellow in a white shirt and apron hovers at your table for a moment, waiting until you look up at him."
+
+        if buffet1_eat_seconds:
+
+            "???" "Hi there! Looks like you might not be ready for dessert yet, but I couldn't help notice how much you've put away tonight and wanted to give you first dibs."
+
+        else:
+            
+            "???" "Excuse me, sir, would you care for some dessert?"
+
+        "???" "I've just finished baking this warm, moist cake and I've got a hunch that you'll appreciate it more than anyone else here."
+
+        m "Why certainly! I'd love some, thanks!"
+
+        "He cuts you off a piece of the cake so large that it's nearly a quarter of it."
+
+        "As he separates it and exposes more than the outer coating of icing, you notice that it's no ordinary cake."
+
+        "There are two tiers of dark, chocolate coloured cake, sandwiching a middle tier of cinnamon donuts covered in whipped cream."
+
+        m "Oh wow."
+
+        "???" "Wait until you taste it! Go on!"
+
+        "You take a spoon and scoop out a piece. It's so fresh, you can feel its pleasant heat. The icing is rich and decadent, but you can't resist."
+
+        m "You're not kidding. Chef, this is amazing! Full on, but amazing!"
+
+        y "Chef Royce, at your service! On quiet nights like this, I like to experiment. Always helps to get the tick of approval from a sympathetic ear. Or in this case, a sympathetic tummy."
+
+        if buffet1_eat_seconds:
+
+            "He looks down at your midsection, which is stretching your shirt and showing a little bit of skin underneath."
+
+        "He gives your belly two gentle taps and takes a seat opposite you. He gazes at you, distant but smiling. He seems happy, so you keep tucking into more of the cake."
+
+        # AMERICAN ALERT: Jam over jelly
+
+        m "Hey, there's jam in these donuts!"
+
+        y "You better believe it! Nothing but the finest for this venue's finest! It's fun using the injector for it too. I love seeing the donuts really swell and take shape as they fill up."
+
+        m "I hope I'm not keeping you from anything."
+
+        y "Nonsense! If the boss sees me, I'll call it a break. In all honesty, getting feedback is really important to the improvement of my craft. Any thoughts?"
+
+        m "It's really rich, but I'm sure that's the idea. I thought it would be a bit dry with the double layers of cake, but it's beautifully moist, and the whipped cream finishes it well."
+
+        y "Good. Anything negative? Come on, I won't get mad."
+
+        m "If anything, the outside doesn't hint at how unique and tasty a creation it is on the inside."
+
+        y "Surprise! Haha! You're probably right. I could show it off better. That's good stuff, thanks."
+
+        m "Hey, thank you for the personal service."
+
+        y "My pleasure. You know what? I'm just going to leave the rest of it here for you. There's plenty of other desserts for the others."
+
+        m "Uhhh, I don't think I can eat all this."
+
+        y "Come see me later if you need a doggy bag then. I'll send over some tea and coffee to help you through a bit more though."
+
+        "Considering you're basically too full to move right now, it's hard to disagree."
+
+        m "Great!"
+
+        y "Enjoy!"
+
+        "He heads back behind the dessert bar, and you breathe deeply as you lay eyes on the mass of dessert in front of you."
+
+        "A bit more can't hurt. It's a real experience and it feels good to jazz up your day with something out of the ordinary."
+
+        pause 2
+
+        "After an hour, you're nearly falling asleep at the table as your body works to digest the buffet's delights."
+
+        y "It's ok, buddy, you don't need to stay up all night trying to finish it just for me. I appreciate the effort though!"
+
+        "Royce boxes up the remaining cake and helps you up out of your chair."
+
+        y "I've let the front desk staff know you've been extremely helpful today, no charge. Keep me, uhh, keep us in mind next time you'd like to dine!"
+
+        m "I will. I won't be forgetting until at least lunch time at this rate!"
+
+        "You grab your full, firm belly and jokingly knock against it."
+
+        y "Eeee! What a successful night!"
+
+        "Royce smooshes himself against you in a tight hug."
+
+        y "Bye big guy!"
 
         jump the_end
 
